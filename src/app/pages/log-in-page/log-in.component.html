@@ -1,0 +1,30 @@
+<div style="text-align:center">
+  <h1>Log In</h1>
+
+<div class="email">
+<mat-form-field  >
+  <input matInput formControlName="email" placeholder="Enter your email"  required> 
+  <!-- [formControl]="email" required -->
+  <mat-error>{{getErrorMessage()}}</mat-error>
+</mat-form-field>
+</div>
+
+<div class="password">
+  <mat-form-field>
+    <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+    <!-- <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
+  </mat-form-field>
+</div>
+        
+        <div class="example-button-row">
+          <button mat-flat-button color="primary">Log In</button>
+         
+        </div>
+        
+      </div>
+      
+      
+      
+      
+      <router-outlet></router-outlet>
+      

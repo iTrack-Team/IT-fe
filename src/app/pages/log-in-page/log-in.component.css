@@ -1,0 +1,20 @@
+h1 {
+    margin-top: 50px;
+}
+.email {
+  display: flex;
+  flex-direction: column;
+}
+
+.emali > * {
+  width: 100%;
+}
+.password {
+  display: flex;
+  flex-direction: column;
+}
+
+.password > * {
+  width: 100%;
+}
+

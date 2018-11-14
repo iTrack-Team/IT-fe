@@ -1,0 +1,40 @@
+<div style="text-align:center">
+        <h1>Create Account</h1>
+     
+
+<form class="name-form" [formGroup]="control">
+        <mat-form-field class="name-form-full-width">
+            <input matInput placeholder="Full Name:" value="">
+        </mat-form-field>   
+
+
+ <div class="email">
+    <mat-form-field  >
+        <input matInput formControlName="email" placeholder="Enter your email"  required> 
+        <!-- [formControl]="email" required -->
+        <mat-error>{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+</div>
+
+<div class="password">
+        <mat-form-field>
+          <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+          <!-- <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
+        </mat-form-field>
+</div>
+<div class="button">
+    <button mat-flat-button color="accent" type="submit">Create Account</button>
+    <router-outlet></router-outlet>
+</div>        
+
+    </form>
+
+
+
+</div>
+      
+
+      
+      
+   
+      
