@@ -17,7 +17,7 @@ import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule }
 from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
-import {MatIconModule} from '@angular/material/icon';
+import {MatSidenavModule, MatIconModule} from '@angular/material';;
 
 // определение маршрутов
 const appRoutes: Routes =[
