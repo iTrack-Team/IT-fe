@@ -8,7 +8,7 @@ import {Routes, RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home-page/home.component';
-import { RegistrationComponent } from './pages/registration-page/registration.component';
+// import { RegistrationComponent } from './pages/registration-page/registration.component';
 import { LogInComponent } from './pages/log-in-page/log-in.component';
  
 '@angular/platform-browser/animations';
@@ -17,10 +17,12 @@ import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule }
 from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
+import {MatIconModule} from '@angular/material/icon';
+
 // определение маршрутов
 const appRoutes: Routes =[
   { path: '', component: HomeComponent},
-  { path: 'registrate', component: RegistrationComponent},
+  // { path: 'registrate', component: RegistrationComponent},
   { path: 'login', component: LogInComponent }
 ];
 
@@ -36,13 +38,14 @@ const appRoutes: Routes =[
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
+    MatIconModule,
     RouterModule.forRoot(appRoutes)// что бы применить маршруты
   ],
   providers: [],
   bootstrap: [AppComponent],
   declarations: [ AppComponent, 
     HomeComponent, 
-    RegistrationComponent, 
+    // RegistrationComponent, 
     LogInComponent]
 })
 export class AppModule { }

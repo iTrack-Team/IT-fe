@@ -1,6 +1,26 @@
-h1 {
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+
+  .log-in-form {
+    /* min-width: 150px;
+    max-width: 500px; */
+    width: 100%;
+  }
+  
+  /* .log-in-form-full-width {
+    width: 100%;
+  } */
+  h1 {
     margin-top: 50px;
 }
+
+
 .email {
   display: flex;
   flex-direction: column;
@@ -9,6 +29,8 @@ h1 {
 .emali > * {
   width: 100%;
 }
+
+
 .password {
   display: flex;
   flex-direction: column;
@@ -18,3 +40,15 @@ h1 {
   width: 100%;
 }
 
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
