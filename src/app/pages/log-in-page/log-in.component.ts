@@ -2,7 +2,7 @@ import { Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {MatSidenavModule, MatToolbarModule, MatIconModule} from '@angular/material';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @Component({
@@ -16,19 +16,13 @@ export class LogInComponent {
       email: new FormControl('', [Validators.email, Validators.required]),
       password: new FormControl('', [Validators.email, Validators.required]),
     });
-
-    hide = true;
     
     getErrorMessageEmail() {
       return this.control.controls.email.hasError('required') ? 'You must enter a value' :
           this.control.controls.email.hasError('email') ? 'Not a valid email' :
               '';
     }
-    getErrorMessagePassword() {
-      return this.control.controls.email.hasError('required') ? 'You must enter a value' :
-          this.control.controls.email.hasError('password') ? 'Not a valid email' :
-              '';
-    }
+    hide = true;
  }
 
 //  export class FormFieldPrefixSuffixExample {

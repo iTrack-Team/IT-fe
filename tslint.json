@@ -108,15 +108,15 @@
       }
     ],
     "typedef": [
-      true,
+      false,// tr
       "call-signature", 
       "parameter", 
       "member-variable-declaration"
     ],
-    "unified-signatures": true,
+    "unified-signatures": false,// tr
     "variable-name": false,
     "whitespace": [
-      true,
+      false,// tr
       "check-branch",
       "check-decl",
       "check-operator",
