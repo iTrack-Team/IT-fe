@@ -33,6 +33,7 @@ a:hover {
     flex-direction: row;
     justify-content: flex-end;
     align-content: center;
+    margin-right: 10px;
 }
 
 .button-head-row {

@@ -1,0 +1,53 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: -70px;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 120%;
+    background-repeat: no-repeat;
+    background-image: url("https://s1.1zoom.ru/big0/460/Summer_Rays_of_light_440588.jpg");
+}
+
+.registration-form-div {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.registration-title {
+    display: flex;
+    font-size: 40px;
+    font: bold 34px "Century Schoolbook", Georgia, Times, serif;
+    color: #333;
+    line-height: 70%;
+    margin: .2em 0 .5em 0;
+    letter-spacing: -2px;
+}
+
+.registration-title span {
+    margin: auto;
+}
+
+.registration-email {
+    display: flex;
+}
+
+.registration-button-get-password {
+    display: flex;
+    height: fit-content;
+    align-self: center;
+    margin-left: 10px;
+}
+
+.registration-password {
+    display: flex;
+    flex-direction: column;
+}
+
+.registration-password>* {
+    width: 100%;
+}

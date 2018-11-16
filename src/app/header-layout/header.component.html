@@ -3,11 +3,10 @@
   <div class="appName">
     <a routerLink="" > iTrack </a>
   </div>
-
   <div class="button-head">
     <div class="button-head-row">
-      <button routerLink="/login" mat-flat-button color="primary">Log In</button>
-      <button routerLink="/registrate" mat-flat-button color="accent">Registrate</button>
+      <button *ngIf="login" routerLink="/login" mat-flat-button color="primary">Log In</button>
+      <button *ngIf="registrate" routerLink="/registrate" mat-flat-button color="accent">Registrate</button>
     <router-outlet></router-outlet>
   </div>
 </div>

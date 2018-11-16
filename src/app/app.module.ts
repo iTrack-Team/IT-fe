@@ -19,11 +19,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 
 import {MatIconModule} from '@angular/material/icon';
 import { HeaderComponent } from './header-layout/header.component';
+import { RegistrationComponent } from './registration-page/registration.component';
 
 // определение маршрутов
 const appRoutes: Routes =[
   { path: '', component: LayoutLandingComponent},
-  { path: 'login', component: LogInComponent }
+  { path: 'login', component: LogInComponent },
+  { path: 'registration', component: RegistrationComponent },
 ];
 
 @NgModule({
@@ -49,6 +51,7 @@ const appRoutes: Routes =[
     LogInComponent,
     HeaderComponent,
     HelloComponent,
+    RegistrationComponent,
   ]
 })
 export class AppModule { }
