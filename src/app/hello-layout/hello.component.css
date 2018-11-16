@@ -7,7 +7,7 @@
     height: 100%;
     background-size: 100% 120%;
     background-repeat: no-repeat;
-    background-image: url("https://s1.1zoom.ru/big0/460/Summer_Rays_of_light_440588.jpg");
+    background-image: url('src\background.jpg');
 }
 
 .hello-item {
@@ -21,7 +21,7 @@
 .hello-text {
     text-align: center;
     font-size: 20px;
-    color: #520452;
+    color: #292929;
     font-weight: bold;
 }
 
