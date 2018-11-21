@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -12,9 +12,9 @@ import { UserService } from 'src/app/user.service';
 })
 
 export class RegistrationComponent {
-  hide: boolean = true;
-  log: boolean = true;
-  pas: boolean = false;
+  hide = true;
+  log = true;
+  pas = false;
   userService: UserService;
 
   control: FormGroup = new FormGroup({
@@ -23,17 +23,17 @@ export class RegistrationComponent {
     password: new FormControl('', [Validators.required]),
   });
 
-  getErrorMessageName(){
+  getErrorMessageName() {
     return '';
   }
 
-  getErrorMessageEmail(){
+  getErrorMessageEmail() {
     return this.control.controls.email.hasError('required') ? 'You must enter a value' :
       this.control.controls.email.hasError('email') ? 'Not a valid email' :
         '';
   }
 
-  tryRegistration(){
+  tryRegistration() {
     const body = {
       name: this.control.controls.name.value,
       email: this.control.controls.email.value,

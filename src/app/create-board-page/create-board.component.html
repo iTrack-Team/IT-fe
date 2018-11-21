@@ -1,0 +1,40 @@
+<exc-layout-header [registrate]="true"></exc-layout-header>
+<div class="main">
+    <div class="create-board-form-div">
+    <div class="create-board-title">
+        <span>Create board</span>
+    </div>
+    <form class="create-board-form" [formGroup]="control">
+
+        <div class="registration-name">
+            <mat-form-field>
+                <input matInput placeholder="Enter form name" required>                
+            </mat-form-field>
+        </div>
+
+        <mat-form-field>
+            <mat-select [(value)]="selected" placeholder="Chose fields number">
+                <mat-option>None</mat-option>
+                <mat-option value="count-1">1</mat-option>
+                <mat-option value="count-2">2</mat-option>
+                <mat-option value="count-3">3</mat-option>
+                <mat-option value="count-4">4</mat-option>
+                <mat-option value="count-5">5</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div class="registration-description">
+                <mat-form-field>
+                    <input matInput placeholder="Enter description">                
+                </mat-form-field>
+            </div>
+        
+        <div class="login-button-submit">
+            <button class="login-button-submit" mat-flat-button color="accent" type="submit">Create</button>
+        <router-outlet></router-outlet>
+        </div>
+
+    </form>
+    </div>
+</div>
+       
