@@ -14,7 +14,7 @@ import { CreateBoardComponent } from './create-board-page/create-board.component
 import { HelloComponent } from './hello-layout/hello.component';
 
 
-'@angular/platform-browser/animations';
+import '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -27,6 +27,7 @@ import { RegistrationComponent } from './registration-page/registration.componen
 const appRoutes: Routes =[
   { path: '', component: LayoutLandingComponent},
   { path: 'login', component: LogInComponent },
+  // { path: 'logout', component: LogOutComponent },// todo
   { path: 'registration', component: RegistrationComponent },
   { path: 'create-board', component: CreateBoardComponent },
 ];

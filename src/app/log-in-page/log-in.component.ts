@@ -39,11 +39,10 @@ export class LogInComponent {
 
     tryLogIn() {
       const body = {
-        // name: this.control.controls.name.value,
         email: this.control.controls.email.value,
         password: this.control.controls.password.value,
       };
-      this.userService.registrate(body).subscribe();
+      this.userService.signIn(body).subscribe();
     }
 
  }

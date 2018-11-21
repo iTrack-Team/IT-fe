@@ -10,4 +10,5 @@ import { Component, Input } from '@angular/core';
 export class HeaderComponent {
   @Input() login: boolean;
   @Input() registration: boolean;
+  @Input() logout: boolean;
 }
