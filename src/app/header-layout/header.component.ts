@@ -9,5 +9,5 @@ import { Component, Input } from '@angular/core';
 
 export class HeaderComponent {
   @Input() login: boolean;
-  @Input() registrate: boolean;
+  @Input() registration: boolean;
 }
