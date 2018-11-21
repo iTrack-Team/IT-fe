@@ -4,6 +4,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { UserService } from 'src/app/user.service';
+import { HttpClient } from "selenium-webdriver/http";
 
 @Component({
   selector: 'registration',
@@ -13,17 +14,22 @@ import { UserService } from 'src/app/user.service';
 
 export class RegistrationComponent {
   hide: boolean = true;
-  log: boolean = true;
-  pas: boolean = false;
-  userService: UserService;
+  gotPassword: boolean = false;
+
+  constructor(private userService: UserService) { }
 
   control: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
+    surname: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.email, Validators.required]),
     password: new FormControl('', [Validators.required]),
   });
 
   getErrorMessageName(){
+    return '';
+  }
+
+  getErrorMessageSurname(){
     return '';
   }
 
@@ -33,9 +39,10 @@ export class RegistrationComponent {
         '';
   }
 
-  tryRegistration(){
+  getPasswordForRegistration(){
     const body = {
       name: this.control.controls.name.value,
+      surname: this.control.controls.surname.value,
       email: this.control.controls.email.value,
     };
     this.userService.registrate(body).subscribe();

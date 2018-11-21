@@ -36,11 +36,15 @@
     display: flex;
 }
 
+.registration-button-submit{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
 .registration-button-get-password {
     display: flex;
     height: fit-content;
-    align-self: center;
-    margin-left: 10px;
 }
 
 .registration-password {

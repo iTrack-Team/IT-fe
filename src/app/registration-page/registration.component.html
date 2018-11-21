@@ -11,6 +11,12 @@
           <mat-error>{{getErrorMessageName()}}</mat-error>
         </mat-form-field>
       </div>
+      <div class="registration-surname">
+        <mat-form-field>
+          <input matInput formControlName="surname" placeholder="Enter your surname" required>
+          <mat-error>{{getErrorMessageSurname()}}</mat-error>
+        </mat-form-field>
+      </div>
       <div class="registration-email">
         <mat-form-field>
           <input matInput formControlName="email" placeholder="Enter your email" required>
@@ -24,9 +30,9 @@
         </mat-form-field>
       </div>
       <div class="registration-button-submit">
-        <button *ngIf="pas" mat-flat-button color="accent" type="submit">Enter</button>
-        <button *ngIf="log" class="registration-button-get-password" mat-flat-button color="accent" type="submit">Get a password</button>
-        <router-outlet></router-outlet>
+        <button *ngIf="gotPassword" mat-flat-button color="accent" type="submit">Enter</button>
+        <button *ngIf="!gotPassword" (click)="getPasswordForRegistration();"
+        mat-flat-button color="accent" type="submit">Get a password</button>
       </div>
     </form>
   </div>
