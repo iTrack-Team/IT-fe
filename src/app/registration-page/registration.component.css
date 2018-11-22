@@ -55,3 +55,9 @@
 .registration-password>* {
     width: 100%;
 }
+
+.registration-error{
+  display: flex;
+  width: fit-content;
+  margin: auto;
+}

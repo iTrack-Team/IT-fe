@@ -23,17 +23,10 @@
           <mat-error>{{getErrorMessageEmail()}}</mat-error>
         </mat-form-field>
       </div>
-      <div *ngIf="pas" class="registration-password">
-        <mat-form-field>
-          <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
-          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </mat-form-field>
-      </div>
       <div class="registration-button-submit">
-        <button *ngIf="gotPassword" mat-flat-button color="accent" type="submit">Enter</button>
-        <button *ngIf="!gotPassword" (click)="getPasswordForRegistration();"
-        mat-flat-button color="accent" type="submit">Get a password</button>
+        <button (click)="getPasswordForRegistration();" mat-flat-button color="accent" type="submit">Get a password</button>
       </div>
+      <div class="registration-error">{{error}}</div>
     </form>
   </div>
 </div>
