@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { MatButtonModule, MatCardModule, MatToolbarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import {Routes, RouterModule} from '@angular/router';
 
@@ -20,6 +21,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import { HeaderComponent } from './header-layout/header.component';
 import { RegistrationComponent } from './registration-page/registration.component';
+import { UserService } from './user.service';
 
 // определение маршрутов
 const appRoutes: Routes =[
@@ -41,9 +43,10 @@ const appRoutes: Routes =[
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)// что бы применить маршруты
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,

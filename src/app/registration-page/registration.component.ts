@@ -1,9 +1,7 @@
 import { Component } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/user.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'registration',
@@ -13,31 +11,41 @@ import { UserService } from 'src/app/user.service';
 
 export class RegistrationComponent {
   hide: boolean = true;
-  log: boolean = true;
-  pas: boolean = false;
-  userService: UserService;
+  gotPassword: boolean = false;
+  status: number;
+  error: string;
+
+  constructor(private userService: UserService,
+    private router: Router) { }
 
   control: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
+    surname: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.email, Validators.required]),
     password: new FormControl('', [Validators.required]),
   });
 
-  getErrorMessageName(){
+  getErrorMessageName() {
     return '';
   }
 
-  getErrorMessageEmail(){
+  getErrorMessageSurname() {
+    return '';
+  }
+
+  getErrorMessageEmail() {
     return this.control.controls.email.hasError('required') ? 'You must enter a value' :
       this.control.controls.email.hasError('email') ? 'Not a valid email' :
         '';
   }
 
-  tryRegistration(){
+  getPasswordForRegistration() {
     const body = {
       name: this.control.controls.name.value,
+      surname: this.control.controls.surname.value,
       email: this.control.controls.email.value,
     };
-    this.userService.registrate(body).subscribe();
+    this.userService.registrate(body).subscribe(data => this.router.navigateByUrl('login'),
+      error => this.error = "error");
   }
 }
