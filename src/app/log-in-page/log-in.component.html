@@ -1,27 +1,26 @@
 <exc-layout-header [registration]="true"></exc-layout-header>
 <div class="main">
-    <div class="login-form-div">
+  <div class="login-form-div">
     <div class="login-title">
-        <span>Log In</span>
+      <span>Log In</span>
     </div>
     <form class="login-form" [formGroup]="control">
-        <div class="login-email">
+      <div class="login-email">
         <mat-form-field>
-            <input matInput formControlName="email" placeholder="Enter your email" required>
-            <mat-error>{{getErrorMessageEmail()}}</mat-error>
+          <input matInput formControlName="email" placeholder="Enter your email" required>
+          <mat-error>{{getErrorMessageEmail()}}</mat-error>
         </mat-form-field>
-        </div>
-        <div *ngIf="pas" class="login-password">
+      </div>
+      <div *ngIf="pas" class="login-password">
         <mat-form-field>
-            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
-            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </mat-form-field>
-        </div>
-        <div class="login-button-submit">
-            <button *ngIf="log" class="login-button-get-password" mat-flat-button color="accent" type="submit">Enter</button>
-            <router-outlet></router-outlet>
-        </div>
+      </div>
+      <div class="login-button-submit">
+        <button *ngIf="pas" mat-flat-button color="accent" type="submit">Enter</button>
+        <router-outlet></router-outlet>
+      </div>
     </form>
-    </div>
+  </div>
 </div>
-       

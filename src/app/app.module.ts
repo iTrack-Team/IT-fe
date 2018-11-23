@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MatButtonModule, MatCardModule, MatToolbarModule } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import {Routes, RouterModule} from '@angular/router';
 
@@ -11,8 +12,6 @@ import { AppComponent } from './app.component';
 import { LayoutLandingComponent } from './landing-page/landing.component';
 import { LogInComponent } from './log-in-page/log-in.component';
 import { HelloComponent } from './hello-layout/hello.component';
-
-import { HttpClientModule } from '@angular/common/http';
 
 import '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -22,6 +21,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import { HeaderComponent } from './header-layout/header.component';
 import { RegistrationComponent } from './registration-page/registration.component';
+import { UserService } from './user.service';
 
 // определение маршрутов
 const appRoutes: Routes =[
@@ -50,7 +50,7 @@ const appRoutes: Routes =[
     HttpClientModule,
     RouterModule.forRoot(appRoutes)// что бы применить маршруты
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
