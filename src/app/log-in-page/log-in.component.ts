@@ -4,6 +4,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { UserService } from 'src/app/user.service';
+import {UserSignIn} from './user.type';
 
 @Component({
   selector: 'login',
@@ -37,12 +38,13 @@ export class LogInComponent {
           '';
     }
 
-    tryLogIn() {
-      const body = {
-        email: this.control.controls.email.value,
-        password: this.control.controls.password.value,
-      };
-      this.userService.signIn(body).subscribe();
-    }
+    // tryLogIn() {
+    //   const body = {
+    //     email: this.control.controls.email.value,
+    //     password: this.control.controls.password.value,
+    //   };
+    //   this.userService.signIn(body).subscribe();
+    // }
+
 
  }

@@ -13,6 +13,7 @@ import { LogInComponent } from './log-in-page/log-in.component';
 import { CreateBoardComponent } from './create-board-page/create-board.component';
 import { HelloComponent } from './hello-layout/hello.component';
 
+import { HttpClientModule } from '@angular/common/http';
 
 import '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -46,6 +47,9 @@ const appRoutes: Routes =[
     MatFormFieldModule,
     MatIconModule,
     MatSelectModule,
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)// что бы применить маршруты
   ],
   providers: [],

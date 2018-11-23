@@ -46,4 +46,12 @@ export class UserService {
         withCredentials: true
       });
   }
+
+  // createBoard(board: UserCreateBoard) {
+  //   this.headers.append('Access-Control-Allow-Methods', 'POST');
+  //   return this.http.post('http://localhost:3000/user/createBoard',
+  //     body, {
+  //       headers: this.headers,
+  //       withCredentials: true
+  //     });
 }
