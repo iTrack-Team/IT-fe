@@ -10,7 +10,6 @@ import {Routes, RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
 import { LayoutLandingComponent } from './landing-page/landing.component';
 import { LogInComponent } from './log-in-page/log-in.component';
-import { CreateBoardComponent } from './create-board-page/create-board.component';
 import { HelloComponent } from './hello-layout/hello.component';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -30,7 +29,6 @@ const appRoutes: Routes =[
   { path: 'login', component: LogInComponent },
   // { path: 'logout', component: LogOutComponent },// todo
   { path: 'registration', component: RegistrationComponent },
-  { path: 'create-board', component: CreateBoardComponent },
 ];
 
 @NgModule({
@@ -61,7 +59,6 @@ const appRoutes: Routes =[
     HeaderComponent,
     HelloComponent,
     RegistrationComponent,
-    CreateBoardComponent,
   ]
 })
 export class AppModule { }
