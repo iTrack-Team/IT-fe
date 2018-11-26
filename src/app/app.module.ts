@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { MatButtonModule, MatCardModule, MatToolbarModule } from '@angular/material';
+import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -10,12 +11,11 @@ import {Routes, RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
 import { LayoutLandingComponent } from './landing-page/landing.component';
 import { LogInComponent } from './log-in-page/log-in.component';
-import { HelloComponent } from './hello-layout/hello.component'
+import { HelloComponent } from './hello-layout/hello.component';
 
-'@angular/platform-browser/animations';
+import '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule }
-from '@angular/material';
+import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
 import {MatIconModule} from '@angular/material/icon';
@@ -27,6 +27,7 @@ import { UserService } from './user.service';
 const appRoutes: Routes =[
   { path: '', component: LayoutLandingComponent},
   { path: 'login', component: LogInComponent },
+  // { path: 'logout', component: LogOutComponent },// todo
   { path: 'registration', component: RegistrationComponent },
 ];
 
@@ -43,6 +44,9 @@ const appRoutes: Routes =[
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
+    MatSelectModule,
+    BrowserModule,
+    FormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes)// что бы применить маршруты
   ],

@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
   selector: 'exc-layout-landing-page',
   templateUrl: './landing.component.html',
 })
-export class LayoutLandingComponent{
+export class LayoutLandingComponent {
 
 }
