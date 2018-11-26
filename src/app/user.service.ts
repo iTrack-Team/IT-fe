@@ -20,6 +20,16 @@ export class UserService {
     this.headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
   }
 
+  public signIn(body) {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post('http://localhost:3000/auth/login',
+      body, {
+        headers: this.headers,
+        observe: 'response',
+        withCredentials: true
+      }).pipe(catchError(err => throwError(err)));
+  }
+
   signOut(): Observable<User> {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
     return this.http.get<any>('http://localhost:3000/logout', { headers: this.headers, withCredentials: true });
