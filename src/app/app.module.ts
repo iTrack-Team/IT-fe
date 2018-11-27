@@ -14,20 +14,23 @@ import { HelloComponent } from './hello-layout/hello.component'
 
 '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule }
-from '@angular/material';
+import { MatInputModule, MatListModule } from '@angular/material';
+import { MatBottomSheetModule } from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
 import {MatIconModule} from '@angular/material/icon';
 import { HeaderComponent } from './header-layout/header.component';
 import { RegistrationComponent } from './registration-page/registration.component';
 import { UserService } from './user.service';
+import { BoardPageComponent } from './board-page/board-page.component';
+import { BoardLayoutComponent } from './board-layout/board-layout.component';
 
 // определение маршрутов
 const appRoutes: Routes =[
   { path: '', component: LayoutLandingComponent},
   { path: 'login', component: LogInComponent },
   { path: 'registration', component: RegistrationComponent },
+  { path: 'board', component: BoardPageComponent }
 ];
 
 @NgModule({
@@ -44,6 +47,8 @@ const appRoutes: Routes =[
     MatFormFieldModule,
     MatIconModule,
     HttpClientModule,
+    MatBottomSheetModule,
+    MatListModule,
     RouterModule.forRoot(appRoutes)// что бы применить маршруты
   ],
   providers: [UserService],
@@ -55,6 +60,9 @@ const appRoutes: Routes =[
     HeaderComponent,
     HelloComponent,
     RegistrationComponent,
-  ]
+    BoardPageComponent,
+    BoardLayoutComponent,
+  ],
+  entryComponents: [],
 })
 export class AppModule { }
