@@ -1,7 +1,7 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/user.service';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'registration',
@@ -10,8 +10,8 @@ import { Router } from "@angular/router";
 })
 
 export class RegistrationComponent {
-  hide: boolean = true;
-  gotPassword: boolean = false;
+  hide: true;
+  gotPassword: false;
   status: number;
   error: string;
 
@@ -46,6 +46,6 @@ export class RegistrationComponent {
       email: this.control.controls.email.value,
     };
     this.userService.registrate(body).subscribe(data => this.router.navigateByUrl('login'),
-      error => this.error = "error");
+      error => this.error = 'error');
   }
 }

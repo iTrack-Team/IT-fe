@@ -1,4 +1,4 @@
-<exc-layout-header [registrate]="true"></exc-layout-header>
+<exc-layout-header [registration]="true"></exc-layout-header>
 <div class="main">
   <div class="login-form-div">
     <div class="login-title">
@@ -11,14 +11,14 @@
           <mat-error>{{getErrorMessageEmail()}}</mat-error>
         </mat-form-field>
       </div>
-      <div *ngIf="pas" class="login-password">
+      <div class="login-password">
         <mat-form-field>
-          <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+          <input matInput formControlName="password" placeholder="Enter your password" [type]="hide ? 'password' : 'text'" required>
           <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </mat-form-field>
       </div>
       <div class="login-button-submit">
-        <button *ngIf="pas" mat-flat-button color="accent" type="submit">Enter</button>
+        <button (click)="tryLogIn();" mat-flat-button color="accent" type="submit">Enter</button>
         <router-outlet></router-outlet>
       </div>
     </form>

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { MatButtonModule, MatCardModule, MatToolbarModule } from '@angular/material';
+import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -10,9 +11,9 @@ import {Routes, RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
 import { LayoutLandingComponent } from './landing-page/landing.component';
 import { LogInComponent } from './log-in-page/log-in.component';
-import { HelloComponent } from './hello-layout/hello.component'
+import { HelloComponent } from './hello-layout/hello.component';
 
-'@angular/platform-browser/animations';
+import '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatInputModule, MatListModule } from '@angular/material';
 import { MatBottomSheetModule } from '@angular/material';
@@ -29,6 +30,7 @@ import { BoardLayoutComponent } from './board-layout/board-layout.component';
 const appRoutes: Routes =[
   { path: '', component: LayoutLandingComponent},
   { path: 'login', component: LogInComponent },
+  // { path: 'logout', component: LogOutComponent },// todo
   { path: 'registration', component: RegistrationComponent },
   { path: 'board', component: BoardPageComponent }
 ];
@@ -46,6 +48,9 @@ const appRoutes: Routes =[
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
+    MatSelectModule,
+    BrowserModule,
+    FormsModule,
     HttpClientModule,
     MatBottomSheetModule,
     MatListModule,
