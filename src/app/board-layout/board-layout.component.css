@@ -1,0 +1,24 @@
+.board-main-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100% - 50px);
+  justify-content: center;
+  align-items: center;
+}
+.board-name-container{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: fit-content;
+  padding: 10px;
+}
+.board-columns-container{
+  display: flex;
+  width: 90%;
+  height: 90%;
+}
+mat-progress-bar{
+  width: 200px;
+  height: 5px;
+}
