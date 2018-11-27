@@ -22,12 +22,13 @@ import {MatIconModule} from '@angular/material/icon';
 import { HeaderComponent } from './header-layout/header.component';
 import { RegistrationComponent } from './registration-page/registration.component';
 import { UserService } from './user.service';
+import { UserHeaderLayoutComponent } from './user-header-layout/user-header-layout.component';
 
 // определение маршрутов
 const appRoutes: Routes =[
   { path: '', component: LayoutLandingComponent},
   { path: 'login', component: LogInComponent },
-  // { path: 'logout', component: LogOutComponent },// todo
+  { path: 'user-header-layout', component: UserHeaderLayoutComponent },
   { path: 'registration', component: RegistrationComponent },
 ];
 
@@ -59,6 +60,7 @@ const appRoutes: Routes =[
     HeaderComponent,
     HelloComponent,
     RegistrationComponent,
+    UserHeaderLayoutComponent,
   ]
 })
 export class AppModule { }
