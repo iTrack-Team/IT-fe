@@ -32,7 +32,7 @@ export class UserService {
 
   signOut(): Observable<User> {
     this.headers.append('Access-Control-Allow-Methods', 'GET');
-    return this.http.get<any>('http://localhost:3000/logout', { headers: this.headers, withCredentials: true });
+    return this.http.get<any>('http://localhost:3000/auth/logout', { headers: this.headers, withCredentials: true });
   }
 
   public registrate(body) {
@@ -44,12 +44,4 @@ export class UserService {
         withCredentials: true
       }).pipe(catchError(err => throwError(err)));
   }
-
-  // createBoard(board: UserCreateBoard) {
-  //   this.headers.append('Access-Control-Allow-Methods', 'POST');
-  //   return this.http.post('http://localhost:3000/user/createBoard',
-  //     body, {
-  //       headers: this.headers,
-  //       withCredentials: true
-  //     });
 }
