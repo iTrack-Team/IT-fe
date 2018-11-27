@@ -28,6 +28,12 @@ a:hover {
     text-decoration: none;
 }
 
+.user-name {
+    margin-right: 10px;
+    font-size: 20px;
+    font: bold 18px "Century Schoolbook", Georgia, Times, serif;
+}
+
 .button-head {
     display: flex;
     flex-direction: row;
