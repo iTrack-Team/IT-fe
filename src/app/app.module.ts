@@ -30,6 +30,8 @@ import { UserService } from './user.service';
 import { BoardPageComponent } from './board-page/board-page.component';
 import { BoardLayoutComponent } from './board-layout/board-layout.component';
 import { ColumnLayoutComponent } from './column-layout/column-layout.component';
+import { UserHeaderLayoutComponent } from './user-header-layout/user-header-layout.component';
+import { TaskLayoutComponent } from './task-layout/task-layout.component';
 
 // определение маршрутов
 const appRoutes: Routes = [
@@ -72,6 +74,8 @@ const appRoutes: Routes = [
     BoardPageComponent,
     BoardLayoutComponent,
     ColumnLayoutComponent,
+    UserHeaderLayoutComponent,
+    TaskLayoutComponent,
   ],
   entryComponents: [],
 })
