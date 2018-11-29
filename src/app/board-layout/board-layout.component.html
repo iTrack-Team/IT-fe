@@ -9,7 +9,7 @@
           [bufferValue]="bufferValue">
       </mat-progress-bar>
   </div>
-  <div class="board-columns-container">
-    <exc-column-layout></exc-column-layout>
+  <div *ngIf="allLists" class="board-columns-container">
+    <exc-column-layout [columns]="columns" [allLists]="allLists"></exc-column-layout>
   </div>
 </div>

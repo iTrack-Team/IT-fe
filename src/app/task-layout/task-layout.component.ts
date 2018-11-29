@@ -10,4 +10,5 @@ export class TaskLayoutComponent {
   constructor() { }
   @Input() name;
   @Input() description;
+  @Input() id;
 }
