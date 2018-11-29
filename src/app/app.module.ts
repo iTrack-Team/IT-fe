@@ -33,6 +33,7 @@ import { BoardLayoutComponent } from './board-layout/board-layout.component';
 import { ColumnLayoutComponent } from './column-layout/column-layout.component';
 import { UserHeaderLayoutComponent } from './user-header-layout/user-header-layout.component';
 import { TaskLayoutComponent } from './task-layout/task-layout.component';
+import { Column } from './column-layout/column.component';
 
 // определение маршрутов
 const appRoutes: Routes = [
@@ -78,6 +79,7 @@ const appRoutes: Routes = [
     ColumnLayoutComponent,
     UserHeaderLayoutComponent,
     TaskLayoutComponent,
+    Column,
   ],
   entryComponents: [],
 })

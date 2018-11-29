@@ -12,25 +12,29 @@ export class BoardLayoutComponent {
   bufferValue = 75;
   columns = [{
     id: '1',
-    name: 'column1',
+    name: 'To Do',
     tasks: [{
-      name: 'Task1',
-      description: 'T1-description',
-    },
-    {
-      name: 'Task2',
-      description: 'T2-description',
-    }]
-  },
-  {
-    name: 'column2',
-    tasks: [{
+      name: 'Task1-1',
+      id: '7659',
+      description: 'hi, do me!'
+    },{
       name: 'Task1-2',
-      description: 'T1-description',
+      id: '7949',
+      description: 'hi, do-do-do me!'
+    }],
+  }, {
+    id: '2',
+    name: 'Done',
+    tasks: [{
+      name: 'Task2-1',
+      id: '2554',
+      description: 'hi, do me! *2'
     },
     {
       name: 'Task2-2',
-      description: 'T2-description',
-    }]
+      id: '2524',
+      description: 'hi, do-do me! *2'
+    }],
   }];
+  allLists = [...this.columns.map(_ => _.name)];
 }
