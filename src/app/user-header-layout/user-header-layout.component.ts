@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class UserHeaderLayoutComponent {
 
-  userName = 'lolkek';
+  userName = 'Dasha Shatrova';
 
   constructor(private userService: UserService,
     private router: Router) { }

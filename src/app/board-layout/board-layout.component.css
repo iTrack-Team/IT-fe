@@ -1,0 +1,37 @@
+.board-main-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100% - 50px);
+  justify-content: center;
+  align-items: center;
+}
+
+.board-name-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: fit-content;
+  padding: 10px;
+}
+
+.board-columns-container {
+  display: flex;
+  width: 90%;
+  height: 90%;
+}
+
+mat-progress-bar {
+  width: 200px;
+  height: 5px;
+}
+
+.board-name-span {
+  margin-bottom: 10px;
+  font-size: 30px;
+  font-family: times, Times New Roman, times-roman, georgia, serif;
+  color: rgb(255, 255, 255);
+  line-height: 20px;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
