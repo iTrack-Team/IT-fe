@@ -16,6 +16,7 @@ import {
 } from '@angular/material';
 
 import { MatSelectModule } from '@angular/material/select';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -50,6 +51,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     MatToolbarModule,
+    DragDropModule,
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,

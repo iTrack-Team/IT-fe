@@ -25,11 +25,11 @@ export class BoardLayoutComponent {
   {
     name: 'column2',
     tasks: [{
-      name: 'Task1',
+      name: 'Task1-2',
       description: 'T1-description',
     },
     {
-      name: 'Task2',
+      name: 'Task2-2',
       description: 'T2-description',
     }]
   }];

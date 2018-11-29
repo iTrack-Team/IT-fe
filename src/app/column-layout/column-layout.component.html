@@ -1,8 +1,37 @@
 <div class="column-container">
-  <div class="column-name">
-    <span>{{column.name}}</span>
-  </div>
-  <div class="column-tasks" style="width: 400px">
+  <div class="example-container">
+    <h2>To do</h2>
 
+    <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList]" class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+    </div>
+    <div class="create-task">
+      <div class="task-name"><span style="margin: auto">Task Name</span></div>
+      <div class="task-description"><span style="margin: auto">Task Description</span></div>
+      <div (click)="addTask()" class="task-add-button"><span style="margin: auto">add Task</span></div>
+    </div>
   </div>
+
+  <div class="example-container">
+    <h2>Done</h2>
+
+    <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]" class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+    </div>
+    <div class="create-task">
+      <div class="task-name"><span style="margin: auto">Task Name</span></div>
+      <div class="task-description"><span style="margin: auto">Task Description</span></div>
+      <div (click)="addTask()" class="task-add-button"><span style="margin: auto">add Task</span></div>
+    </div>
   </div>
+
+  <div class="example-container">
+    <div class="create-task">
+      <div class="task-name"><span style="margin: auto">Column Name</span></div>
+      <div (click)="addTask()" class="task-add-button"><span style="margin: auto">add Column</span></div>
+    </div>
+  </div>
+
+</div>
