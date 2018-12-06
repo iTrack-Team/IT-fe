@@ -1,3 +1,17 @@
 <div *ngIf="allLists" class="column-container">
-  <app-column *ngFor="let column of columns" [column]="column" [allLists]="allLists"></app-column>
+  <div *ngFor="let column of columns" class="example-container">
+    <div class="column-info">
+      <textarea autosize class="my-textarea" [minRows]="1">{{column.name}}</textarea>
+      <i style="display: flex;font-size: 20px; cursor: pointer" class="fa fa-minus-square"></i>
+    </div>
+    <div cdkDropList id="{{column.name}}" [cdkDropListData]="column.tasks" [cdkDropListConnectedTo]="allLists" class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <!--<exc-task-layout style="margin-top: 10px;" *ngFor="let item of column.tasks" cdkDrag [id]="item.id" [name]="item.name"
+        [description]="item.description"></exc-task-layout>-->
+        <div class="task" *ngFor="let item of column.tasks" cdkDrag>
+          {{item.name}}
+        </div>
+    </div>
+    <button (click)="addTask(column.id);" class="add-button" mat-stroked-button color="primary">Добавить задачу</button>
+  </div>
 </div>
