@@ -22,9 +22,13 @@
     "@angular/platform-browser": "~7.0.0",
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
+    "@ngrx/store": "^6.1.2",
+    "angular-autosize": "^1.0.1",
     "angular-common": "^0.1.0",
     "core-js": "^2.5.4",
+    "font-awesome": "^4.7.0",
     "material-design-icons": "^3.0.1",
+    "ngx-autosize": "^1.2.4",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.26"
   },

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from './registration-page/user.type';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -20,14 +20,14 @@ export class UserService {
     this.headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
   }
 
-  public signIn(body) {
+  public signIn(body): any {
     this.headers.append('Access-Control-Allow-Methods', 'POST');
     return this.http.post('http://localhost:3000/auth/login',
       body, {
         headers: this.headers,
+        withCredentials: true,
         observe: 'response',
-        withCredentials: true
-      }).pipe(catchError(err => throwError(err)));
+      }).pipe(tap(), catchError(err => throwError(err)));
   }
 
   signOut(): Observable<User> {

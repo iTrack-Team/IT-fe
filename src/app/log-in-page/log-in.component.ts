@@ -5,6 +5,10 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { UserService } from 'src/app/user.service';
 import {UserSignIn} from './user.type';
+import { User } from '../registration-page/user.type';
+import { Store } from '@ngrx/store';
+import * as fromRoot from '../_store/reducers';
+import * as userAction from '../_store/actions/user';
 import { Router } from '@angular/router';
 
 
@@ -21,8 +25,11 @@ export class LogInComponent {
   error: string;
 
 
-  constructor(private userService: UserService,
-    private router: Router) { }
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private store: Store<fromRoot.State>,
+    ) { }
 
     control: FormGroup = new FormGroup({
       email: new FormControl('', [Validators.email, Validators.required]),
@@ -49,7 +56,11 @@ export class LogInComponent {
         email: this.control.controls.email.value,
         password: this.control.controls.password.value,
       };
-      this.userService.signIn(body).subscribe(data => this.router.navigateByUrl('board'),
+      this.userService.signIn(body).subscribe(data => {
+        let user: User = data.body;
+        this.store.dispatch(new userAction.Set(user));
+        this.router.navigateByUrl('board')
+      },
         error => this.error = 'Check entered data');
     }
 

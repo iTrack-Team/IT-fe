@@ -11,13 +11,25 @@
 }
 
 .example-list {
-  border: solid 1px #ccc;
   min-height: 60px;
-  background: white;
   border-radius: 4px;
   overflow: hidden;
   display: block;
   width: 90%;
+}
+
+.task {
+  padding: 20px 10px;
+  border: solid 1px #ccc;
+  margin: 5px 0px;
+  color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  cursor: move;
+  background: white;
+  font-size: 14px;
 }
 
 .cdk-drag-preview {
@@ -35,7 +47,7 @@
 }
 
 
-.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+.example-list.cdk-drop-list-dragging .task:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
@@ -49,41 +61,43 @@
   min-height: 300px;
 }
 
-.create-task{
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
+.add-button{
+  margin-top: 10px;
+}
+
+.my-textarea{
+  background-color: transparent;
+  border: none;
+  resize: none;
+  height: 32px !important;
   width: 90%;
+  font-size: 20px;
+  margin-top: 10px;
+  text-align: center;
+  padding: 5px;
+}
+.my-textarea-add-name, .my-textarea-add-description{
+  background-color: transparent;
+  border: none;
+  resize: none;
+  width: 100%;
+  padding: 5px;
+}
+.my-textarea-add-name{
+  height: 30px !important;
+  text-align: center;
+  font-size: 18px;
+}
+.my-textarea-add-description{
+  font-size: 16px;
+  height: 40px !important;
+}
+.column-info{
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  margin: 10px 10px 0px 10px;
-  border: solid 1px #ccc;
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.9)
-}
-
-.task-name{
-  padding: 5px;
-  display: flex;
   width: 100%;
+  justify-content: center;
   height: fit-content;
-  border-bottom: solid 1px #ccc;
-}
-.task-description{
-  display: flex;
-  height: fit-content;
-  min-height: 50px;
-  width: 100%;
-  padding: 5px;
-  border-bottom: solid 1px #ccc;
-}
-
-.task-add-button{
-  color: blue;
-  padding: 5px;
-  cursor: pointer;
-  width: 100%;
-  display: flex;
-}
-.task-add-button:hover{
-  background-color: rgb(245, 245, 245);
+  align-content: center;
 }

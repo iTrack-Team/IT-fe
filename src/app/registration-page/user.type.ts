@@ -1,7 +1,8 @@
 export interface User {
+  id: any;
   name: string;
+  surname: string;
   email: string;
-  password: string;
 }
 export interface UserSignIn {
   email: string;

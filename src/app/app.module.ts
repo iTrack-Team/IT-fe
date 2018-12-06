@@ -3,7 +3,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { AutosizeModule } from 'ngx-autosize';
 import { Routes, RouterModule } from '@angular/router';
+import { metaReducers, reducers } from '../app/_store/reducers';
+import { StoreModule } from '@ngrx/store';
 import '@angular/platform-browser/animations';
 
 import {
@@ -33,7 +36,6 @@ import { BoardLayoutComponent } from './board-layout/board-layout.component';
 import { ColumnLayoutComponent } from './column-layout/column-layout.component';
 import { UserHeaderLayoutComponent } from './user-header-layout/user-header-layout.component';
 import { TaskLayoutComponent } from './task-layout/task-layout.component';
-import { Column } from './column-layout/column.component';
 
 // определение маршрутов
 const appRoutes: Routes = [
@@ -48,6 +50,7 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     MatButtonModule,
+    AutosizeModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
@@ -63,7 +66,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     MatListModule,
     MatProgressBarModule,
-    RouterModule.forRoot(appRoutes)// что бы применить маршруты
+    RouterModule.forRoot(appRoutes),
+    StoreModule.forRoot(reducers, {metaReducers}),
   ],
   providers: [UserService],
   bootstrap: [AppComponent],
@@ -79,7 +83,6 @@ const appRoutes: Routes = [
     ColumnLayoutComponent,
     UserHeaderLayoutComponent,
     TaskLayoutComponent,
-    Column,
   ],
   entryComponents: [],
 })
