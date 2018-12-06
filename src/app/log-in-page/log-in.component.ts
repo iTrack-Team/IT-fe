@@ -50,7 +50,7 @@ export class LogInComponent {
         password: this.control.controls.password.value,
       };
       this.userService.signIn(body).subscribe(data => this.router.navigateByUrl('board'),
-        error => this.error = 'error');
+        error => this.error = 'Check entered data');
     }
 
 
