@@ -51,3 +51,8 @@
 .login-password>* {
   width: 100%;
 }
+
+.login-error{
+  display: flex;
+  margin-bottom: 10px;
+}

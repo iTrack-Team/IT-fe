@@ -1,8 +1,23 @@
-<div cdkdrag class="task">
-  <div>
+<div class="one-task">
+
+  <!-- <div>
     {{name}}
   </div>
+  <textarea data-v-84b2af5c="" placeholder="Task name..."
+  rows="1" spellcheck="false" class="form-control-plaintext h6 header-text"
+  style="resize: none; overflow: hidden; height: 31px;"></textarea>
   <div>
     {{description}}
-  </div>
+  </div> -->
+
+  <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Task name">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="description"></textarea>
+      </mat-form-field>
+    </form>
+
 </div>

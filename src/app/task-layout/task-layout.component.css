@@ -1,4 +1,4 @@
-.task {
+.one-task {
   width: 100%;
   padding: 20px 10px;
   color: rgba(0, 0, 0, 0.87);
@@ -29,4 +29,15 @@
 
 .cdk-drag-animating {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-form {
+  min-width: 50px;
+  max-width: 300px;
+  /* max-height: 50px; */
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
 }

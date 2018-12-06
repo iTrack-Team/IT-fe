@@ -61,7 +61,7 @@ export class LogInComponent {
         this.store.dispatch(new userAction.Set(user));
         this.router.navigateByUrl('board')
       },
-        error => this.error = 'error');
+        error => this.error = 'Check entered data');
     }
 
 
