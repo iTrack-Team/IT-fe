@@ -1,13 +1,6 @@
 <div class="board-main-container">
   <div class="board-name-container">
     <span class="board-name-span font">My Board</span>
-    <mat-progress-bar
-          class="example-margin"
-          [color]="color"
-          [mode]="mode"
-          [value]="value"
-          [bufferValue]="bufferValue">
-      </mat-progress-bar>
   </div>
   <div *ngIf="allLists" class="board-columns-container">
     <exc-column-layout [columns]="columns" [allLists]="allLists"></exc-column-layout>

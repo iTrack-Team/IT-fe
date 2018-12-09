@@ -5,8 +5,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AutosizeModule } from 'ngx-autosize';
 import { Routes, RouterModule } from '@angular/router';
-import { metaReducers, reducers } from '../app/_store/reducers';
-import { StoreModule } from '@ngrx/store';
 import '@angular/platform-browser/animations';
 
 import {
@@ -67,7 +65,6 @@ const appRoutes: Routes = [
     MatListModule,
     MatProgressBarModule,
     RouterModule.forRoot(appRoutes),
-    StoreModule.forRoot(reducers, {metaReducers}),
   ],
   providers: [UserService],
   bootstrap: [AppComponent],
