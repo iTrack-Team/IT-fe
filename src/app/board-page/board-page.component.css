@@ -1,6 +1,7 @@
 .main{
-  background-image: url("https://wallpapershome.ru/images/pages/pic_h/475.jpg");
+  background: url("https://wallpapershome.ru/images/pages/pic_h/475.jpg") no-repeat center center fixed;
   background-size: 100% 100%;
   width: 100%;
   height: 100%;
+  max-height: 100%;
 }

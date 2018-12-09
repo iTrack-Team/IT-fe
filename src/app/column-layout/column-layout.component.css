@@ -8,6 +8,25 @@
   align-items: center;
   flex-direction: column;
   height: fit-content;
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+.example-container::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color:inherit;
+}
+
+.example-container::-webkit-scrollbar {
+  width: 10px;
+  background-color: inherit;
+}
+
+.example-container::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #555;
 }
 
 .example-list {
@@ -19,17 +38,29 @@
 }
 
 .task {
-  padding: 20px 10px;
   border: solid 1px #ccc;
   margin: 5px 0px;
   color: rgba(0, 0, 0, 0.87);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   cursor: move;
   background: white;
   font-size: 14px;
+}
+.name-task{
+  display: flex;
+  font-size: 17px;
+  width: 100%;
+  padding: 2px;
+  border-bottom: solid 1px #ccc;
+}
+.description-task{
+  font-size: 14px;
+  display: flex;
+  width: 100%;
+  max-height: 200px;
+  padding: 2px;
 }
 
 .cdk-drag-preview {
@@ -46,7 +77,6 @@
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-
 .example-list.cdk-drop-list-dragging .task:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
@@ -59,40 +89,59 @@
   margin: 10px;
   height: fit-content;
   min-height: 300px;
+  max-height: 100%;
 }
 
-.add-button{
+.add-button {
   margin-top: 10px;
 }
 
-.my-textarea{
+.my-textarea {
+  max-height: 35px !important;
   background-color: transparent;
   border: none;
   resize: none;
-  height: 32px !important;
   width: 90%;
   font-size: 20px;
   margin-top: 10px;
   text-align: center;
   padding: 5px;
 }
-.my-textarea-add-name, .my-textarea-add-description{
+
+.my-textarea-name-of-task{
+  font-family: 'Verdana', sans-serif;
+  font-size: 16px;
+  line-height: 30px;
+}
+.my-textarea-description-of-task{
+  font-family: 'Verdana', sans-serif;
+  font-size: 14px;
+  line-height: 28px;
+}
+
+.my-textarea-add-name,
+.my-textarea-add-description,
+.my-textarea-name-of-task,
+.my-textarea-description-of-task {
   background-color: transparent;
   border: none;
   resize: none;
   width: 100%;
   padding: 5px;
 }
-.my-textarea-add-name{
-  height: 30px !important;
+
+.my-textarea-add-name {
   text-align: center;
   font-size: 18px;
 }
-.my-textarea-add-description{
+
+.my-textarea-add-description {
   font-size: 16px;
-  height: 40px !important;
+  overflow-y: auto;
+  max-height: 300px;
 }
-.column-info{
+
+.column-info {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -100,4 +149,45 @@
   justify-content: center;
   height: fit-content;
   align-content: center;
+}
+
+.create-task {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  width: 90%;
+  align-items: center;
+  margin: 10px 10px 0px 10px;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.9)
+}
+
+.task-name {
+  padding: 5px;
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  border-bottom: solid 1px #ccc;
+}
+
+.task-description {
+  display: flex;
+  height: fit-content;
+  min-height: 50px;
+  width: 100%;
+  padding: 5px;
+  border-bottom: solid 1px #ccc;
+}
+
+.task-add-button {
+  color: blue;
+  padding: 5px;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+}
+
+.task-add-button:hover {
+  color: rgb(253, 81, 81);
 }

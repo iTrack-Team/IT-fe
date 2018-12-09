@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { BoardService } from '../board.service';
-import { Store } from '@ngrx/store';
-import * as userReducer from '../_store/reducers/user';
 
 @Component({
   selector: 'exc-board-layout',
@@ -23,7 +21,15 @@ export class BoardLayoutComponent implements OnInit {
       id: '7659',
       description: 'Killed'
     }, {
-      name: 'UMF 5',
+      name: 'UMF 6',
+      id: '7949',
+      description: 'no time...'
+    }, {
+      name: 'UMF 7',
+      id: '7949',
+      description: 'no time...\nplease\ndo not do it\npleaseeeeee'
+    }, {
+      name: 'UMF 8',
       id: '7949',
       description: 'no time...'
     }],
@@ -41,18 +47,11 @@ export class BoardLayoutComponent implements OnInit {
       description: 'Еще 15 пар..'
     }],
   }];
-  allLists = [...this.columns.map(_ => _.name)];
-  constructor(
-    private boardService: BoardService,
-    private store: Store<userReducer.State>,
-  ) { }
-  ngOnInit() {
-    this.store.select(userReducer.getUser).subscribe((user) => {
-      user = user.user;
-      this.userId = user.id;
-    });
+  allLists = [...this.columns.map(_ => _.id)];
+  constructor(private boardService: BoardService) { }
 
-    this.boardService.getBoard(this.userId).subscribe(data => {
+  ngOnInit() {
+    this.boardService.getBoard().subscribe(data => {
       console.log(data);
     },
       error => console.log(error));
