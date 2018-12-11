@@ -5,15 +5,18 @@
   max-height: calc(100% - 70px);
   justify-content: center;
   align-items: center;
+  padding-top: 70px;
 }
 
 .board-name-container {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
+  overflow: auto;
+  justify-content: center;
+  align-items: center;
   height: fit-content;
-  padding: 20px 0px 0px 25px;
-  height: 40px;
+  padding: 0px 0px 0px 25px;
 }
 
 .board-columns-container {
@@ -22,11 +25,77 @@
   max-height: calc(100% - 100px);
 }
 
-.board-name-span {
-  font-size: 30px;
+.board-info-inputs {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 5px 0px 5px;
+  padding: 5px;
+  width: 100%;
+  position: relative;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.input-board-name,
+.input-board-description {
+  background-color: transparent;
+  border: none;
+  min-width: fit-content;
+  padding: 5px;
+  font-weight: 400;
   font-family: times, Times New Roman, times-roman, georgia, serif;
-  color: rgb(255, 255, 255);
-  line-height: 20px;
-  letter-spacing: -1px;
-  font-weight: bold;
+}
+
+.input-board-name {
+  font-size: 22px;
+}
+
+.input-board-description {
+  font-size: 19px;
+  font-style: italic;
+}
+
+.add-column {
+  width: 400px;
+  min-width: 400px;
+  background-color: #eff1f3;
+  border-radius: 5px;
+  border: 1px solid #e1e4e8 !important;
+  margin: 30px 0px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: fit-content;
+  max-height: 800px;
+}
+
+.add-button {
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+  width: 60%;
+  cursor: pointer;
+}
+
+.add-button span {
+  margin: auto;
+}
+
+.column-name-input {
+  margin-top: 10px;
+  display: flex;
+  border-radius: 4px;
+  background-color: white;
+  border: 1px solid #ced4da;
+  font-size: 16;
+  padding: 10px 12px;
+  width: 80%;
+  font-family: '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif';
+}
+
+.column-name-input:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
 }

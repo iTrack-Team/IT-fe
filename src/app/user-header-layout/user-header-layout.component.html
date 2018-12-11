@@ -3,9 +3,11 @@
   <div class="appName">
     <a routerLink=""> iTrack </a>
   </div>
+  <div class="board-name" *ngIf="boardName">
+      <input class="my-input-board-name" (change)="changeBoardName()" id="input-board-name" maxlength="20" value="{{boardName}}" />
+  </div>
   <div class="button-head">
     <div class="button-head-row">
-      <div class="user-name"> {{userName}} </div>
       <button (click)="logOut();" routerLink="/user-header-layout" mat-flat-button color="accent">Log Out</button>
       <router-outlet></router-outlet>
     </div>

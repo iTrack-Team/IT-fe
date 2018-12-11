@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { addTask, Task } from '../_types/task.type';
+import { Task, moveTask } from '../_types/task.type';
 import { BoardService } from '../board.service';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
@@ -15,7 +15,7 @@ export class ColumnLayoutComponent {
   constructor(private boardService: BoardService) {
   }
 
-  ngAfterViewChecked(){
+  ngAfterViewChecked() {
     this.autogrow();
   }
 
@@ -27,17 +27,28 @@ export class ColumnLayoutComponent {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
+
       transferArrayItem(event.previousContainer.data,
         event.container.data,
         event.previousIndex,
         event.currentIndex);
     }
+    const moveInfo: moveTask = {
+      columnFrom: event.previousContainer.id,
+      columnTo: event.container.id,
+    };
+    console.log(event.previousContainer.data);
+    console.log(event.previousContainer.data[event.previousIndex]);
+    this.boardService.moveTask(moveInfo, (<any>event.previousContainer.data[event.previousIndex])._id).subscribe(data => {
+      this.columns = data.body.columns;
+    },
+      error => console.log(error));
   }
 
   autogrow() {
     let textArea = document.getElementsByClassName("textarea")
     for (let i = 0; i < textArea.length; i++) {
-      if (+(<HTMLElement>textArea[i]).style.height.split('px')[0] < 300) {
+      if (+(<HTMLElement>textArea[i]).style.height.split('px')[0] < 200) {
         (<HTMLElement>textArea[i]).style.overflow = 'hidden';
       } else {
         (<HTMLElement>textArea[i]).style.overflowY = 'auto';
@@ -48,38 +59,49 @@ export class ColumnLayoutComponent {
   }
 
   addTask(columnId: string) {
-    const taskName = (<HTMLInputElement>document.getElementById(`input-task-name-${columnId}`)).value;
-    const taskDescription = (<HTMLInputElement>document.getElementById(`input-task-description-${columnId}`)).value;
-    const task: addTask = {
-      columnId,
-      taskName,
-      taskDescription,
+    const name = (<HTMLInputElement>document.getElementById(`input-task-name-${columnId}`)).value;
+    const description = (<HTMLInputElement>document.getElementById(`input-task-description-${columnId}`)).value;
+    const task: Task = {
+      name,
+      description,
     };
-    this.boardService.addTask(task).subscribe(data => {
-      console.log(data);
+    this.boardService.addTask(task, columnId).subscribe(data => {
+      this.columns = data.body.columns;
     },
       error => console.log(error));
   }
 
-  changeTask(id: string){
+  changeTask(id: string) {
     const name = (<HTMLInputElement>document.getElementById(`change-task-name-${id}`)).value;
     const description = (<HTMLInputElement>document.getElementById(`change-task-description-${id}`)).value;
     const task: Task = {
-      id,
       name,
       description,
     };
-    this.boardService.putTask(task).subscribe(data => {
-      console.log(data);
+    this.boardService.putTask(task, id).subscribe(data => {
+      this.columns = data.body.columns;
     },
       error => console.log(error));
   }
 
   deleteColumn(columnId) {
     this.boardService.deleteColumn(columnId).subscribe(data => {
-      console.log(data);
+      this.columns = data.body.columns;
     },
       error => console.log(error));
   }
 
+  changeColumnName(id) {
+    const name = (<HTMLInputElement>document.getElementById(`input-column-name-${id}`)).value;
+    this.boardService.putColumnName(name, id).subscribe(data => {
+    },
+      error => console.log(error));
+  }
+
+  deleteTask(columnId, taskId) {
+    this.boardService.deleteTask(columnId, taskId).subscribe(data => {
+      this.columns = data.body.columns;
+    },
+      error => console.log(error));
+  }
 }
