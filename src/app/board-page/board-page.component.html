@@ -1,4 +1,4 @@
-<div class="main">
-  <exc-user-header-layout></exc-user-header-layout>
-  <exc-board-layout></exc-board-layout>
+<div class="main" *ngIf="board">
+  <exc-user-header-layout [boardName]="board.name"></exc-user-header-layout>
+  <exc-board-layout [columns]="board.columns" [allLists]="allLists"></exc-board-layout>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { BoardService } from '../board.service';
 
 @Component({
@@ -6,53 +6,17 @@ import { BoardService } from '../board.service';
   templateUrl: './board-layout.component.html',
   styleUrls: ['./board-layout.component.css']
 })
-export class BoardLayoutComponent implements OnInit {
-  userId;
+export class BoardLayoutComponent {
+  @Input() columns;
+  @Input() allLists;
 
-  color = 'primary';
-  mode = 'determinate';
-  value = 50;
-  bufferValue = 75;
-  columns = [{
-    id: '1',
-    name: 'To Do',
-    tasks: [{
-      name: 'KC lab_10',
-      id: '7659',
-      description: 'Killed'
-    }, {
-      name: 'UMF 6',
-      id: '7949',
-      description: 'no time...'
-    }, {
-      name: 'UMF 7',
-      id: '7949',
-      description: 'no time...\nplease\ndo not do it\npleaseeeeee'
-    }, {
-      name: 'UMF 8',
-      id: '7949',
-      description: 'no time...'
-    }],
-  }, {
-    id: '2',
-    name: 'Done',
-    tasks: [{
-      name: 'UMF 4',
-      id: '2554',
-      description: 'Need 5th december'
-    },
-    {
-      name: 'Отработка физры',
-      id: '2524',
-      description: 'Еще 15 пар..'
-    }],
-  }];
-  allLists = [...this.columns.map(_ => _.id)];
-  constructor(private boardService: BoardService) { }
+  constructor(private boardService: BoardService) {}
 
-  ngOnInit() {
-    this.boardService.getBoard().subscribe(data => {
-      console.log(data);
+  addColumn() {
+    const name = (<HTMLInputElement>document.getElementById(`input-column-name`)).value;
+    this.boardService.addColumn(name).subscribe(data => {
+      this.columns = data.body.columns;
+      (<HTMLInputElement>document.getElementById(`input-column-name`)).value = '';
     },
       error => console.log(error));
   }

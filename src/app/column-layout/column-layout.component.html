@@ -1,30 +1,36 @@
 <div *ngIf="allLists" class="column-container">
   <div *ngFor="let column of columns" class="example-container">
     <div class="column-info">
-      <textarea (keyup)="notautosize()" class="my-textarea" maxlength="20" rows="1">{{column.name}}</textarea>
-      <i (click)="deleteColumn(column.id)" style="display: flex;font-size: 20px; cursor: pointer" class="fa fa-minus-square"></i>
+      <input class="my-textarea" (change)="changeColumnName(column._id)" id="input-column-name-{{column._id}}" maxlength="20"
+        value="{{column.name}}" />
+      <i (click)="deleteColumn(column._id)" class="far fa-trash-alt delete-icon delete-icon-column"></i>
     </div>
-    <div cdkDropList id="{{column.id}}" [cdkDropListData]="column.tasks" [cdkDropListConnectedTo]="allLists" class="example-list"
-      (cdkDropListDropped)="drop($event)">
-      <div class="task" *ngFor="let item of column.tasks" cdkDrag>
-        <div class="name-task">
-          <textarea (keyup)="autogrow()" (change)="changeTask(item.id)" id="change-task-name-{{item.id}}" maxlength="30" rows="1" class="my-textarea-name-of-task textarea">{{item.name}}</textarea>
-        </div>
-        <div class="description-task">
-          <textarea (keyup)="autogrow()" (change)="changeTask(item.id)" id="change-task-description-{{item.id}}" maxlength="150" class="my-textarea-description-of-task textarea">{{item.description}}</textarea>
+    <div class="tasks-container">
+      <div cdkDropList id="{{column._id}}" [cdkDropListData]="column.tasks" [cdkDropListConnectedTo]="allLists" class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="task" *ngFor="let item of column.tasks" cdkDrag>
+          <div class="name-task">
+            <textarea (keyup)="autogrow()" (change)="changeTask(item._id)" id="change-task-name-{{item._id}}" maxlength="30"
+              rows="1" class="my-textarea-name-of-task textarea">{{item.name}}</textarea>
+              <i (click)="deleteTask(column._id, item._id)" class="far fa-trash-alt delete-icon"></i>
+          </div>
+          <div class="description-task">
+            <textarea (keyup)="autogrow()" (change)="changeTask(item._id)" id="change-task-description-{{item._id}}"
+              maxlength="150" class="my-textarea-description-of-task textarea">{{item.description}}</textarea>
+          </div>
         </div>
       </div>
     </div>
     <div class="create-task">
       <div class="task-name">
-        <textarea placeholder="task name" (keyup)="autogrow()" maxlength="30" rows="1" class="my-textarea-add-name textarea"
-          id="input-task-name-{{column.id}}"></textarea>
+        <textarea placeholder="Введите название.." (keyup)="autogrow()" maxlength="30" rows="1" class="my-textarea-add-name textarea"
+          id="input-task-name-{{column._id}}"></textarea>
       </div>
       <div class="task-description">
-        <textarea placeholder="description" maxlength="150" class="my-textarea-add-description textarea" (keyup)="autogrow()"
-          id="input-task-description-{{column.id}}"></textarea>
+        <textarea placeholder="Введите описание.." maxlength="150" class="my-textarea-add-description textarea" (keyup)="autogrow()"
+          id="input-task-description-{{column._id}}"></textarea>
       </div>
-      <div (click)="addTask(column.id)" class="task-add-button"><span style="margin: auto">add Task</span></div>
+      <div (click)="addTask(column._id)" class="task-add-button"><span style="margin: auto">add Task</span></div>
     </div>
   </div>
 </div>

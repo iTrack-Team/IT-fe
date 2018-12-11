@@ -1,8 +1,11 @@
 <div class="board-main-container">
-  <div class="board-name-container">
-    <span class="board-name-span font">My Board</span>
-  </div>
-  <div *ngIf="allLists" class="board-columns-container">
+  <div class="board-columns-container" *ngIf="columns">
     <exc-column-layout [columns]="columns" [allLists]="allLists"></exc-column-layout>
+    <div class="add-column">
+      <input class="column-name-input" id="input-column-name" placeholder="Введите имя.." />
+      <div (click)="addColumn()" class="add-button">
+        <span>+Добавить колонку</span>
+      </div>
+    </div>
   </div>
 </div>

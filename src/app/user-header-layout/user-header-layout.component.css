@@ -5,7 +5,7 @@ header {
     display: flex;
     justify-content: flex-end;
     align-content: center;
-    position: relative;
+    position: fixed;
 }
 
 .appName {
@@ -28,10 +28,9 @@ a:hover {
     text-decoration: none;
 }
 
-.user-name {
-    margin-right: 10px;
-    font-size: 20px;
-    font: bold 18px "Century Schoolbook", Georgia, Times, serif;
+.board-name {
+    margin: auto;
+    font: bold 22px "Century Schoolbook", Georgia, Times, serif;
 }
 
 .button-head {
@@ -54,4 +53,14 @@ a:hover {
 
 a {
     border: none;
+}
+
+.my-input-board-name {
+  font-size: 20px;
+  line-height: 30px;
+  background-color: transparent;
+  border: none;
+  resize: none;
+  padding: 5px;
+  font-family: 'Verdana', sans-serif;
 }

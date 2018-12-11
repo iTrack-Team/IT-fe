@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { throwError } from 'rxjs';
-import { addTask, Task } from './_types/task.type';
+import { Task, moveTask } from './_types/task.type';
 import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
@@ -26,9 +26,9 @@ export class BoardService {
       }).pipe(tap(), catchError(err => throwError(err)));
   }
 
-  public addTask(body: addTask): any {
+  public addTask(body: Task, id: string): any {
     this.headers.append('Access-Control-Allow-Methods', 'POST');
-    return this.http.post(`http://localhost:3000/board/task`,
+    return this.http.post(`http://localhost:3000/board/add-task/${id}`,
       body,
       {
         headers: this.headers,
@@ -38,8 +38,8 @@ export class BoardService {
   }
 
   public deleteColumn(id: string): any {
-    this.headers.append('Access-Control-Allow-Methods', 'DELETE');
-    return this.http.delete(`http://localhost:3000/board/column?id=${id}`,
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post(`http://localhost:3000/board/delete-column/${id}`,
       {
         headers: this.headers,
         withCredentials: true,
@@ -47,10 +47,64 @@ export class BoardService {
       }).pipe(tap(), catchError(err => throwError(err)));
   }
 
-  public putTask(task: Task): any {
-    this.headers.append('Access-Control-Allow-Methods', 'PUT');
-    return this.http.put(`http://localhost:3000/board/task`,
+  public putTask(task: Task, id: string): any {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post(`http://localhost:3000/board/task-edit/${id}`,
       task,
+      {
+        headers: this.headers,
+        withCredentials: true,
+        observe: 'response',
+      }).pipe(tap(), catchError(err => throwError(err)));
+  }
+
+  public putColumnName(name: string, id: string): any {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post(`http://localhost:3000/board/column-edit/${id}`,
+      { name },
+      {
+        headers: this.headers,
+        withCredentials: true,
+        observe: 'response',
+      }).pipe(tap(), catchError(err => throwError(err)));
+  }
+
+  public addColumn(name: string): any {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post(`http://localhost:3000/board/add-column`,
+      { name },
+      {
+        headers: this.headers,
+        withCredentials: true,
+        observe: 'response',
+      }).pipe(tap(), catchError(err => throwError(err)));
+  }
+
+  public deleteTask(columnId: string, taskId: string): any {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post(`http://localhost:3000/board/delete-task/${columnId}/${taskId}`,
+      {
+        headers: this.headers,
+        withCredentials: true,
+        observe: 'response',
+      }).pipe(tap(), catchError(err => throwError(err)));
+  }
+
+  public changeBoardName(name: string): any {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post(`http://localhost:3000/board/board-edit`,
+      { name },
+      {
+        headers: this.headers,
+        withCredentials: true,
+        observe: 'response',
+      }).pipe(tap(), catchError(err => throwError(err)));
+  }
+
+  public moveTask(moveInfo: moveTask, taskId: string): any {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post(`http://localhost:3000/board/move/${taskId}`,
+      moveInfo,
       {
         headers: this.headers,
         withCredentials: true,
