@@ -16,6 +16,7 @@ export class BoardLayoutComponent {
     const name = (<HTMLInputElement>document.getElementById(`input-column-name`)).value;
     this.boardService.addColumn(name).subscribe(data => {
       this.columns = data.body.columns;
+      this.allLists = [...this.columns.map(item => item._id)];
       (<HTMLInputElement>document.getElementById(`input-column-name`)).value = '';
     },
       error => console.log(error));

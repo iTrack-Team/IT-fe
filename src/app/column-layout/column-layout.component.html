@@ -2,7 +2,7 @@
   <div *ngFor="let column of columns" class="example-container">
     <div class="column-info">
       <input class="my-textarea" (change)="changeColumnName(column._id)" id="input-column-name-{{column._id}}" maxlength="20"
-        value="{{column._id}}" />
+        value="{{column.name}}" />
       <i (click)="deleteColumn(column._id)" class="far fa-trash-alt delete-icon delete-icon-column"></i>
     </div>
     <div class="tasks-container">
@@ -16,18 +16,18 @@
           </div>
           <div class="description-task">
             <textarea (keyup)="autogrow()" (change)="changeTask(item._id)" id="change-task-description-{{item._id}}"
-              maxlength="150" class="my-textarea-description-of-task textarea">{{item._id}}</textarea>
+              maxlength="150" class="my-textarea-description-of-task textarea">{{item.description}}</textarea>
           </div>
         </div>
       </div>
     </div>
     <div class="create-task">
       <div class="task-name">
-        <textarea placeholder="Введите название.." (keyup)="autogrow()" maxlength="30" rows="1" class="my-textarea-add-name textarea"
+        <textarea placeholder="Name.." (keyup)="autogrow()" maxlength="30" rows="1" class="my-textarea-add-name textarea"
           id="input-task-name-{{column._id}}"></textarea>
       </div>
       <div class="task-description">
-        <textarea placeholder="Введите описание.." maxlength="150" class="my-textarea-add-description textarea" (keyup)="autogrow()"
+        <textarea placeholder="Description.." maxlength="150" class="my-textarea-add-description textarea" (keyup)="autogrow()"
           id="input-task-description-{{column._id}}"></textarea>
       </div>
       <div (click)="addTask(column._id)" class="task-add-button"><span style="margin: auto">add Task</span></div>

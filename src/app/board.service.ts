@@ -40,6 +40,7 @@ export class BoardService {
   public deleteColumn(id: string): any {
     this.headers.append('Access-Control-Allow-Methods', 'POST');
     return this.http.post(`http://localhost:3000/board/delete-column/${id}`,
+      {},
       {
         headers: this.headers,
         withCredentials: true,
@@ -83,6 +84,7 @@ export class BoardService {
   public deleteTask(columnId: string, taskId: string): any {
     this.headers.append('Access-Control-Allow-Methods', 'POST');
     return this.http.post(`http://localhost:3000/board/delete-task/${columnId}/${taskId}`,
+      {},
       {
         headers: this.headers,
         withCredentials: true,
