@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Task, moveTask } from '../_types/task.type';
 import { BoardService } from '../board.service';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'exc-column-layout',
@@ -12,7 +13,7 @@ export class ColumnLayoutComponent {
   @Input() columns: Array<Object>;
   @Input() allLists;
 
-  constructor(private boardService: BoardService) {
+  constructor(private boardService: BoardService, private router: Router) {
   }
 
   ngAfterViewChecked() {
@@ -27,22 +28,24 @@ export class ColumnLayoutComponent {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
-
-      transferArrayItem(event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex);
+      const moveInfo: moveTask = {
+        columnFrom: event.previousContainer.id,
+        columnTo: event.container.id,
+      };
+      const id = (<any>event.previousContainer.data[event.previousIndex])._id;
+      this.boardService.moveTask(moveInfo, id).subscribe(data => {
+        // this.columns = data.body.columns;
+        console.log(data.body);
+        this.router.navigateByUrl('board');
+      },
+        error => console.log(error));
+      //transferArrayItem(event.previousContainer.data,
+        //event.container.data,
+        //event.previousIndex,
+        //event.currentIndex);
     }
-    const moveInfo: moveTask = {
-      columnFrom: event.previousContainer.id,
-      columnTo: event.container.id,
-    };
-    console.log(event.previousContainer.data);
-    console.log(event.previousContainer.data[event.previousIndex]);
-    this.boardService.moveTask(moveInfo, (<any>event.previousContainer.data[event.previousIndex])._id).subscribe(data => {
-      this.columns = data.body.columns;
-    },
-      error => console.log(error));
+
+
   }
 
   autogrow() {
