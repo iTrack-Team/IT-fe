@@ -44,4 +44,14 @@ export class UserService {
         withCredentials: true
       }).pipe(catchError(err => throwError(err)));
   }
+
+  public getNewPassword(body) {
+    this.headers.append('Access-Control-Allow-Methods', 'POST');
+    return this.http.post('http://localhost:3000/auth/reset-password',
+      body, {
+        headers: this.headers,
+        observe: 'response',
+        withCredentials: true
+      }).pipe(catchError(err => throwError(err)));
+  }
 }
