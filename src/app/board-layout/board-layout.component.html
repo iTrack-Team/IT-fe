@@ -2,9 +2,9 @@
   <div class="board-columns-container" *ngIf="columns">
     <exc-column-layout [columns]="columns" [allLists]="allLists"></exc-column-layout>
     <div class="add-column">
-      <input class="column-name-input" id="input-column-name" placeholder="Введите имя.." />
+      <input class="column-name-input" id="input-column-name" placeholder="Name.." />
       <div (click)="addColumn()" class="add-button">
-        <span>+Добавить колонку</span>
+        <span>Add Column</span>
       </div>
     </div>
   </div>
