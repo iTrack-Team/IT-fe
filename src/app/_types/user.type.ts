@@ -8,3 +8,7 @@ export interface UserSignIn {
   email: string;
   password: string;
 }
+export interface UserGetNewPassword {
+  email: string;
+  // password: string;
+}
