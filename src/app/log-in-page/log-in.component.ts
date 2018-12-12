@@ -42,14 +42,24 @@ export class LogInComponent {
           '';
     }
 
-    tryLogIn() {
+    // tryLogIn() {
+    //   const body = {
+    //     email: this.control.controls.email.value,
+    //     password: this.control.controls.password.value,
+    //   };
+    //   this.userService.signIn(body).subscribe(data => {
+    //     this.router.navigateByUrl('board');
+    //    },
+    //     error => this.error = 'Check entered data');
+    // }
+
+ tryLogIn() {
       const body = {
         email: this.control.controls.email.value,
         password: this.control.controls.password.value,
       };
-      this.userService.signIn(body).subscribe(data => {
-        this.router.navigateByUrl('board');
-       },
+      this.userService.signIn(body).subscribe(data => this.router.navigateByUrl('board'),
         error => this.error = 'Check entered data');
     }
+
  }
