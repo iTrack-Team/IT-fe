@@ -10,5 +10,9 @@ export interface UserSignIn {
 }
 export interface UserGetNewPassword {
   email: string;
-  // password: string;
+}
+export interface ChangePassword {
+  oldPass: string;
+  newPass: string;
+  password: string;
 }

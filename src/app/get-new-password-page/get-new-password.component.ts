@@ -35,7 +35,7 @@ export class GetNewPasswordComponent {
         const body = {
           email: this.control.controls.email.value,
         };
-        this.userService.getNewPassword(body).subscribe(data => this.router.navigateByUrl('get-new-password'),
+        this.userService.getNewPassword(body).subscribe(data => this.router.navigateByUrl('login'),
         error => this.error = 'error');
       }
 
