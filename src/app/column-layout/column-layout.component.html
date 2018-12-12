@@ -1,8 +1,8 @@
-<div *ngIf="allLists" class="column-container">
+<div *ngIf="columns" class="column-container">
   <div *ngFor="let column of columns" class="example-container">
     <div class="column-info">
       <input class="my-textarea" (change)="changeColumnName(column._id)" id="input-column-name-{{column._id}}" maxlength="20"
-        value="{{column.name}}" />
+        value="{{column._id}}" />
       <i (click)="deleteColumn(column._id)" class="far fa-trash-alt delete-icon delete-icon-column"></i>
     </div>
     <div class="tasks-container">
@@ -16,7 +16,7 @@
           </div>
           <div class="description-task">
             <textarea (keyup)="autogrow()" (change)="changeTask(item._id)" id="change-task-description-{{item._id}}"
-              maxlength="150" class="my-textarea-description-of-task textarea">{{item.description}}</textarea>
+              maxlength="150" class="my-textarea-description-of-task textarea">{{item._id}}</textarea>
           </div>
         </div>
       </div>

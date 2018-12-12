@@ -103,6 +103,8 @@ export class BoardService {
 
   public moveTask(moveInfo: moveTask, taskId: string): any {
     this.headers.append('Access-Control-Allow-Methods', 'POST');
+    console.log(moveInfo);
+    console.log(taskId);
     return this.http.post(`http://localhost:3000/board/move/${taskId}`,
       moveInfo,
       {
