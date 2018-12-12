@@ -35,8 +35,8 @@ export class GetNewPasswordComponent {
         const body = {
           email: this.control.controls.email.value,
         };
-        this.userService.getNewPassword(body).subscribe(data => this.router.navigateByUrl('reset-password'),
-          error => this.error = 'error');
+        this.userService.getNewPassword(body).subscribe(data => this.router.navigateByUrl('get-new-password'),
+        error => this.error = 'error');
       }
 
       tryLogIn() {
@@ -45,7 +45,7 @@ export class GetNewPasswordComponent {
           password: this.control.controls.password.value,
         };
         this.userService.signIn(body).subscribe(data => {
-          this.router.navigateByUrl('board')
+          this.router.navigateByUrl('board');
              },
           error => this.error = 'Check entered data');
       }
