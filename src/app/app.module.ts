@@ -34,13 +34,16 @@ import { BoardLayoutComponent } from './board-layout/board-layout.component';
 import { ColumnLayoutComponent } from './column-layout/column-layout.component';
 import { UserHeaderLayoutComponent } from './user-header-layout/user-header-layout.component';
 import { TaskLayoutComponent } from './task-layout/task-layout.component';
+import { GetNewPasswordComponent } from './get-new-password-page/get-new-password.component';
+import { ChangePasswordComponent } from './change-password-page/change-password.component';
 
-// определение маршрутов
 const appRoutes: Routes = [
   { path: '', component: LayoutLandingComponent },
   { path: 'login', component: LogInComponent },
   { path: 'registration', component: RegistrationComponent },
-  { path: 'board', component: BoardPageComponent }
+  { path: 'board', component: BoardPageComponent },
+  { path: 'get-new-password', component: GetNewPasswordComponent },
+  { path: 'change-password', component: ChangePasswordComponent },
 ];
 
 @NgModule({
@@ -80,6 +83,8 @@ const appRoutes: Routes = [
     ColumnLayoutComponent,
     UserHeaderLayoutComponent,
     TaskLayoutComponent,
+    GetNewPasswordComponent,
+    ChangePasswordComponent,
   ],
   entryComponents: [],
 })
