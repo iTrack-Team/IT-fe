@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Task, moveTask } from '../_types/task.type';
+import { Task, moveTask, Column } from '../_types/task.type';
 import { BoardService } from '../board.service';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['column-layout.component.css'],
 })
 export class ColumnLayoutComponent {
-  @Input() columns: Array<Object>;
+  @Input() columns: Array<Column>;
   @Input() allLists;
 
   constructor(private boardService: BoardService, private router: Router) {
@@ -34,18 +34,10 @@ export class ColumnLayoutComponent {
       };
       const id = (<any>event.previousContainer.data[event.previousIndex])._id;
       this.boardService.moveTask(moveInfo, id).subscribe(data => {
-        // this.columns = data.body.columns;
-        console.log(data.body);
-        this.router.navigateByUrl('board');
+        this.columns = data.body.columns;
       },
         error => console.log(error));
-      //transferArrayItem(event.previousContainer.data,
-        //event.container.data,
-        //event.previousIndex,
-        //event.currentIndex);
     }
-
-
   }
 
   autogrow() {
@@ -90,6 +82,7 @@ export class ColumnLayoutComponent {
   deleteColumn(columnId) {
     this.boardService.deleteColumn(columnId).subscribe(data => {
       this.columns = data.body.columns;
+      this.allLists = [...this.columns.map(item => item._id )];
     },
       error => console.log(error));
   }
@@ -97,6 +90,7 @@ export class ColumnLayoutComponent {
   changeColumnName(id) {
     const name = (<HTMLInputElement>document.getElementById(`input-column-name-${id}`)).value;
     this.boardService.putColumnName(name, id).subscribe(data => {
+      this.columns = data.body.columns;
     },
       error => console.log(error));
   }
