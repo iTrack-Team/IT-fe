@@ -19,7 +19,9 @@ export class ColumnLayoutComponent {
   ngAfterViewChecked() {
     this.autogrow();
   }
-
+  ngOnChanges() {
+    this.autogrow();
+  }
   ngAfterViewInit() {
     this.autogrow();
   }
@@ -62,6 +64,7 @@ export class ColumnLayoutComponent {
     };
     this.boardService.addTask(task, columnId).subscribe(data => {
       this.columns = data.body.columns;
+      this.autogrow();
     },
       error => console.log(error));
   }
